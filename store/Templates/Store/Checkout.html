@@ -1,6 +1,11 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
+<header>
+    <h3 style="text-align: left; color: black; ">Checkout Page</h3>
+    <p>Please fill out your details before purchasing your products</p>
+</header>
+
 <div class="row">
     <div class="col-lg-6">
         <div class="box-element" id="form-wrapper">
@@ -30,9 +35,6 @@
                     </div>
                     <div class="form-field">
                         <input class="form-control" type="text" name="postcode" placeholder="Post Code">
-                    </div>
-                    <div class="form-field">
-                        <input class="form-control" type="text" name="country" placeholder="Country">
                     </div>
                 </div>
                 <hr>

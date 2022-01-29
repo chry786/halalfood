@@ -3,49 +3,25 @@
 <!-- <link rel='stylesheet' type='text/css' href="{% static 'CSS/main.css' %}"> -->
 <!-- <img src="{% static 'images/cart.png' %}">  -->
 {% block content %}
-
-<h3 style="text-align: center; color: black; ">Homepage - Store</h3>
-<p style="text-align:center; font-size: larger;">Welcome to the Halal Food Website</p>
-<p style="text-align:center; font-size: large;">Here you will find all our fresh products for you to purchase</p>
+<header>
+    <h3 style="text-align: center; color: black; ">Homepage</h3>
+    <p style="text-align:center; font-size: larger;">Welcome to the Halal Food Online Store</p>
+    <p style="text-align:center; font-size: large;">Here you will find all our fresh products for you to purchase</p>
+</header>
 
 <div class="row">
+    {% for product in products %}
     <div class="col-lg-4">
-        <img class="thumbnail" src="{% static 'images/chicken.jpeg' %}">
+        <img class="thumbnail" src="{{product.image.url}}">
         <div class="box-element product">
-            <h6><strong>Chicken</strong></h6>
+            <h6><strong>{{product.name}}</strong></h6>
             <hr>
 
             <button class="btn btn-outline-secondary add btn">Add to Basket</button>
             <a class="btn btn-outline-success" href="#">View Product</a>
-            <h4><strong>£10</strong></h4>
-
+            <h4><strong>£{{product.price|floatformat:2}}</strong></h4>
         </div>
     </div>
-
-    <div class="col-lg-4">
-        <img class="thumbnail" src="{% static 'images/tomahawk.jpeg' %}">
-        <div class="box-element product">
-            <h6><strong>Tomahawk</strong></h6>
-            <hr>
-
-            <button class="btn btn-outline-secondary add btn">Add to Basket</button>
-            <a class="btn btn-outline-success" href="#">View Product</a>
-            <h4><strong>£25</strong></h4>
-        </div>
-    </div>
-
-    <div class="col-lg-4">
-        <img class="thumbnail" src="{% static 'images/lamb.jpeg' %}">
-        <div class="box-element product">
-            <h6><strong>Lamb</strong></h6>
-            <hr>
-
-            <button class="btn btn-outline-secondary add btn">Add to Basket</button>
-            <a class="btn btn-outline-success" href="#">View Product</a>
-            <h4><strong>£20</strong></h4>
-        </div>
-    </div>
+    {% endfor %}
 </div>
-
-
 {% endblock content %}
